@@ -77,3 +77,4 @@
 /home/dreameater/Documents/Projects/GameSavesBackup/bin/Debug/net9.0/ShimSkiaSharp.dll
 /home/dreameater/Documents/Projects/GameSavesBackup/bin/Debug/net9.0/Svg.Custom.dll
 /home/dreameater/Documents/Projects/GameSavesBackup/bin/Debug/net9.0/Svg.Model.dll
+/home/dreameater/Documents/Projects/GameSavesBackup/obj/Debug/net9.0/GameSavesBackup.sourcelink.json

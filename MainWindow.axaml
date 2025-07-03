@@ -6,9 +6,11 @@
         x:Class="GameSavesBackup.MainWindow"
         Width="650"
         Height="350"
+        CanResize="False"
+        Background="#191919"
         Title="GameSavesBackup">
     
-    <Grid Background="White" ShowGridLines="True">
+    <Grid ShowGridLines="False">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
@@ -16,38 +18,80 @@
 
     
     <StackPanel Grid.Column="0" Grid.Row="0"
-                HorizontalAlignment="Stretch"
+                HorizontalAlignment="Center"
                 Name="MainBlock"
                 VerticalAlignment="Center"
                 Orientation="Vertical"
                 Margin="20">
-        <TextBlock Margin="0.5">From:</TextBlock>
+        
+        <TextBlock Margin="0.5"
+                    FontWeight="Bold"
+                    FontFamily="SF Pro Display"
+                    FontSize="17"
+                    Foreground="white">
+                    From:
+        </TextBlock>
+        
         <StackPanel Orientation="Horizontal">
-            <TextBox TextWrapping="NoWrap"></TextBox>
-            <Button></Button>
+            <TextBox></TextBox>
+            <TextBlock Margin="10"></TextBlock>
+            <Button>
+                <StackPanel>
+                    <PathIcon Height="20" Width="20" Foreground="Black" Data="{StaticResource folder_open_regular}" />
+                </StackPanel>
+            </Button>
         </StackPanel>
-        <Button>
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                <PathIcon Height="20" Width="20" Foreground="Black"/>
+        
+        <TextBlock Margin="2"></TextBlock>
+        <Button HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" 
+                        VerticalAlignment="Center">
+                <PathIcon Height="20" 
+                          Width="20" 
+                          Foreground="Black" 
+                          Data="{StaticResource arrow_sort_regular}"/>
             </StackPanel>    
         </Button>
-        <TextBlock Margin="0.5">To:</TextBlock>
+        
+        <TextBlock Margin="0.5" 
+                   FontWeight="Bold" 
+                   FontFamily="SF Pro Display" 
+                   FontSize="17" 
+                   Foreground="white">
+                   To:</TextBlock>
+        
         <StackPanel Orientation="Horizontal">
-            <TextBox></TextBox>   
-            <Button></Button>
+            <TextBox></TextBox>  
+            <TextBlock Margin="10"></TextBlock> 
+            <Button>
+                <StackPanel>
+                    <PathIcon Height="20" Width="20" Foreground="Black" Data="{StaticResource folder_open_regular}" />
+                </StackPanel>
+            </Button>
         </StackPanel>
-        <Button HorizontalAlignment="Center">Backup</Button>
+        
+        <Button HorizontalAlignment="Center" 
+                Width="100"
+                HorizontalContentAlignment="Center"
+                Margin="15">Backup</Button>
     </StackPanel>
     
+
+
     <StackPanel Grid.Column="1" Grid.Row="0"
-                HorizontalAlignment="Stretch"
+                HorizontalAlignment="Center"
                 Name="PresetBlock"
                 VerticalAlignment="Center"
                 Orientation="Vertical"
                 Margin="20">
-        <TextBlock Margin="0.5">Prests</TextBlock>
+        <TextBlock Margin="0.5" FontWeight="Bold" FontFamily="SF Pro Display" FontSize="17">Presets</TextBlock>
         <ListBox x:Name="Presets"></ListBox>
-        <Button HorizontalAlignment="Center">Save/Edit Preset</Button>
+        <Button HorizontalAlignment="Center"
+                Width="150"
+                HorizontalContentAlignment="Center"
+                Margin="15">
+                Save/Edit Preset
+        </Button>
     </StackPanel>
     </Grid>
     
