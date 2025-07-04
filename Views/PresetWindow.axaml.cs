@@ -4,9 +4,12 @@ namespace GameSavesBackup;
 
 public partial class PresetWindow : Window
 {
-    public PresetWindow()
+    public PresetWindow(string SourcePath, string TargetPath)
     {
         InitializeComponent();
         WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+        SourcePathTextBox.Text = SourcePath;
+        TargetPathTextBox.Text = TargetPath;
     }
 }

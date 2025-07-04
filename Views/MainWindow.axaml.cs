@@ -21,8 +21,11 @@ public partial class MainWindow : Window
 
     public void OpenPresetEditor(object sender, RoutedEventArgs args)
     {
+        var SourcePath = SourcePathTextBox.Text;
+        var TargetPath = TargetPathTextBox.Text;
+
         var ownerWindow = this;
-        var window = new PresetWindow();
+        var window = new PresetWindow(SourcePath, TargetPath);
         window.ShowDialog(ownerWindow);
     }
 
@@ -41,7 +44,7 @@ public partial class MainWindow : Window
             AllowMultiple = false
         });
 
-        if (folders != null  && folders.Count > 0)
+        if (folders != null && folders.Count > 0)
         {
             var folder = folders[0];
             SourcePathTextBox.Text = folder.Path.LocalPath;
@@ -62,4 +65,7 @@ public partial class MainWindow : Window
             TargetPathTextBox.Text = folder.Path.LocalPath;
         }
     }
+
+
 }
+
