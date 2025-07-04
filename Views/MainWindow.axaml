@@ -10,7 +10,7 @@
         Background="#191919"
         Title="GameSavesBackup">
     
-    <Grid ShowGridLines="true">
+    <Grid ShowGridLines="false">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
@@ -34,9 +34,9 @@
         </TextBlock>
         
         <StackPanel Orientation="Horizontal">
-            <TextBox></TextBox>
+            <TextBox x:Name="SourcePathTextBox"></TextBox>
             <TextBlock Margin="10"></TextBlock>
-            <Button>
+            <Button Click="SelectSourceFolder">
                 <StackPanel>
                     <PathIcon Height="20" Width="20" Foreground="Black" Data="{StaticResource folder_open_regular}" />
                 </StackPanel>
@@ -62,9 +62,9 @@
                    To:</TextBlock>
         
         <StackPanel Orientation="Horizontal">
-            <TextBox></TextBox>  
+            <TextBox x:Name="TargetPathTextBox"></TextBox>  
             <TextBlock Margin="10"></TextBlock> 
-            <Button>
+            <Button Click="SelectTargetFolder">
                 <StackPanel>
                     <PathIcon Height="20" Width="20" Foreground="Black" Data="{StaticResource folder_open_regular}" />
                 </StackPanel>
@@ -90,7 +90,8 @@
         <Button HorizontalAlignment="Center"
                 Width="150"
                 HorizontalContentAlignment="Center"
-                Margin="15">
+                Margin="15"
+                Click="OpenPresetEditor">
                 Save/Edit Preset
         </Button>
     </StackPanel>
@@ -103,7 +104,8 @@
                 Margin="10">
         <Button Height="40"
                 Width="40"
-                Margin="0,10">
+                Margin="0,10"
+                Click="OpenSettings">
             <StackPanel>
                 <PathIcon Height="20" 
                           Width="20" 

@@ -1,0 +1,40 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="275"
+        x:Class="GameSavesBackup.PresetWindow"
+        Width="450"
+        Height="275"
+        CanResize="False"
+        Background="#191919"
+        Title="GameSavesBackup">
+    
+    <StackPanel>
+        <TextBlock HorizontalAlignment="Center" Margin="10">Preset Editor</TextBlock>
+        <TextBlock Margin="20,0">Name:</TextBlock>
+        <TextBox HorizontalAlignment="Left"
+                 Margin="20,5" 
+                 Width="400" 
+                 Height="20">
+        </TextBox>
+
+        <TextBlock Margin="20,0">From:</TextBlock>
+        <TextBox HorizontalAlignment="Left"
+                 Margin="20,5" 
+                 Width="400" 
+                 Height="20">
+        </TextBox>
+        <TextBlock Margin="20,0">To:</TextBlock>
+        <TextBox HorizontalAlignment="Left"
+                 Margin="20,5" 
+                 Width="400" 
+                 Height="20">
+        </TextBox>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Width="90" HorizontalContentAlignment="Center" Margin="15,5">Cancel</Button> 
+            <Button Width="90" HorizontalContentAlignment="Center" Margin="15,0">Delete</Button>   
+            <Button Width="90" HorizontalContentAlignment="Center" Margin="15,0">Save</Button>   
+        </StackPanel>
+    </StackPanel>
+</Window>

@@ -24,8 +24,14 @@ build_property.EnableCodeStyleSeverity =
 [/home/dreameater/Documents/Projects/GameSavesBackup/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/home/dreameater/Documents/Projects/GameSavesBackup/MainWindow.axaml]
+[/home/dreameater/Documents/Projects/GameSavesBackup/Styles/Styles.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/home/dreameater/Documents/Projects/GameSavesBackup/Styles.axaml]
+[/home/dreameater/Documents/Projects/GameSavesBackup/Views/MainWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/home/dreameater/Documents/Projects/GameSavesBackup/Views/PresetWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/home/dreameater/Documents/Projects/GameSavesBackup/Views/SettingsWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

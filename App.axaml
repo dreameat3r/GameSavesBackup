@@ -6,7 +6,7 @@
 
     <Application.Styles>
         <FluentTheme />
-        <StyleInclude Source="avares://GameSavesBackup/Styles.axaml" />
+        <StyleInclude Source="avares://GameSavesBackup/Styles/Styles.axaml" />
     </Application.Styles>
 
 </Application>
