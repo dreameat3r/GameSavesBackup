@@ -35,9 +35,27 @@
                  x:Name="TargetPathTextBox">
         </TextBox>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Width="90" HorizontalContentAlignment="Center" Margin="15,5">Cancel</Button> 
-            <Button Width="90" HorizontalContentAlignment="Center" Margin="15,0">Delete</Button>   
-            <Button Width="90" HorizontalContentAlignment="Center" Margin="15,0">Save</Button>   
+            <Button Click="CloseWindow"
+                    x:Name="CancelButton"
+                    Width="90" 
+                    HorizontalContentAlignment="Center" 
+                    Margin="15,5">
+                    Cancel
+        </Button> 
+            <Button Click="DeletePreset"
+                    x:Name="DeleteButton"
+                    Width="90" 
+                    HorizontalContentAlignment="Center" 
+                    Margin="15,0">
+                    Delete
+        </Button>   
+            <Button Click="SavePreset"
+                    x:Name="SaveButton" 
+                    Width="90" 
+                    HorizontalContentAlignment="Center" 
+                    Margin="15,0">
+                    Save
+        </Button>   
         </StackPanel>
     </StackPanel>
 </Window>

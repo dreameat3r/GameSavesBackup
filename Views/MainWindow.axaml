@@ -16,7 +16,6 @@
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="60"/>
         </Grid.ColumnDefinitions>
-
     
     <StackPanel Grid.Column="0" Grid.Row="0"
                 HorizontalAlignment="Center"
@@ -76,8 +75,6 @@
                 HorizontalContentAlignment="Center"
                 Margin="15">Backup</Button>
     </StackPanel>
-    
-
 
     <StackPanel Grid.Column="1" Grid.Row="0"
                 HorizontalAlignment="Center"
@@ -86,7 +83,8 @@
                 Orientation="Vertical"
                 Margin="20">
         <TextBlock Margin="0.5" FontWeight="Bold" FontFamily="SF Pro Display" FontSize="17">Presets</TextBlock>
-        <ListBox x:Name="Presets"></ListBox>
+        <ListBox x:Name="Presets"
+                 SelectionChanged="PresetsSelection"></ListBox>
         <Button HorizontalAlignment="Center"
                 Width="150"
                 HorizontalContentAlignment="Center"

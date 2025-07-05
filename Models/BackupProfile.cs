@@ -5,7 +5,7 @@ namespace GameSavesBackup.Models;
 
 public class BackupProfile
 {
-    public required Guid Id {get; set;}
+    public required int Id {get; set;}
     public required string GameName { get; set; }
     public required string SourcePath { get; set; } 
     public required string TargetPath { get; set; }

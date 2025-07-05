@@ -1,31 +1,62 @@
 using System;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Platform.Storage;
+using System.Text.Json;
+using GameSavesBackup.Models;
+using System.Collections.Generic;
+using Tmds.DBus.Protocol;
 
 namespace GameSavesBackup;
 
 public partial class MainWindow : Window
 {
+    private List<BackupProfile> profiles;
+
     public MainWindow()
     {
         InitializeComponent();
-
         WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
-        Presets.ItemsSource = new string[]
-        {"Elden Ring", "Dark Souls 2", "Project Zomboid", "Baldur's Gate 3", "Terraria"};
+        profiles = LoadProfilesToList();
+        foreach (var profile in profiles)
+        {
+            Presets.Items.Add(profile.GameName);
+        }
+    }
+
+    private List<BackupProfile> LoadProfilesToList()
+    {
+        string json = File.ReadAllText("D:\\Projects\\GameSavesBackup\\presets.json");
+        return JsonSerializer.Deserialize<List<BackupProfile>>(json) ?? new();
+    }
+
+    private void PresetsSelection(object? sender, SelectionChangedEventArgs e)
+    {
+        var selectedItem = Presets.SelectedItem;
+        if (selectedItem == null) return;
+
+        var profile = profiles.Find(p => p.GameName == (string)selectedItem);
+
+        if (profile != null)
+        {
+            SourcePathTextBox.Text = profile.SourcePath;
+            TargetPathTextBox.Text = profile.TargetPath;
+        }
     }
 
     public void OpenPresetEditor(object sender, RoutedEventArgs args)
     {
-        var SourcePath = SourcePathTextBox.Text;
-        var TargetPath = TargetPathTextBox.Text;
+        var SourcePath = SourcePathTextBox.Text ?? "";
+        var TargetPath = TargetPathTextBox.Text ?? "";
+        var GameName = Presets.SelectedItem;
+        if (GameName == null) return;
 
         var ownerWindow = this;
-        var window = new PresetWindow(SourcePath, TargetPath);
+        var window = new PresetWindow(SourcePath, TargetPath, (string)GameName);
         window.ShowDialog(ownerWindow);
     }
 
