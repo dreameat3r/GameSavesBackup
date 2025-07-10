@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GameSavesBackup")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b1156522eb64be5979d1f1a7d2afff1f51aeae4e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1222843e27968ce861d51183e08cc2f155ec8aca")]
 [assembly: System.Reflection.AssemblyProductAttribute("GameSavesBackup")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GameSavesBackup")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

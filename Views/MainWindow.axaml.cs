@@ -30,7 +30,7 @@ public partial class MainWindow : Window
 
     private List<BackupProfile> LoadProfilesToList()
     {
-        string json = File.ReadAllText("D:\\Projects\\GameSavesBackup\\presets.json");
+        string json = File.ReadAllText("presets.json");
         return JsonSerializer.Deserialize<List<BackupProfile>>(json) ?? new();
     }
 
@@ -52,8 +52,7 @@ public partial class MainWindow : Window
     {
         var SourcePath = SourcePathTextBox.Text ?? "";
         var TargetPath = TargetPathTextBox.Text ?? "";
-        var GameName = Presets.SelectedItem;
-        if (GameName == null) return;
+        var GameName = Presets.SelectedItem ?? " ";
 
         var ownerWindow = this;
         var window = new PresetWindow(SourcePath, TargetPath, (string)GameName);

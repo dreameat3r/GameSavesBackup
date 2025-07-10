@@ -15,23 +15,23 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = GameSavesBackup
-build_property.ProjectDir = D:\Projects\GameSavesBackup\
+build_property.ProjectDir = /home/dreameater/Documents/Projects/GameSavesBackup/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[D:/Projects/GameSavesBackup/App.axaml]
+[/home/dreameater/Documents/Projects/GameSavesBackup/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[D:/Projects/GameSavesBackup/Styles/Styles.axaml]
+[/home/dreameater/Documents/Projects/GameSavesBackup/Styles/Styles.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[D:/Projects/GameSavesBackup/Views/MainWindow.axaml]
+[/home/dreameater/Documents/Projects/GameSavesBackup/Views/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[D:/Projects/GameSavesBackup/Views/PresetWindow.axaml]
+[/home/dreameater/Documents/Projects/GameSavesBackup/Views/PresetWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[D:/Projects/GameSavesBackup/Views/SettingsWindow.axaml]
+[/home/dreameater/Documents/Projects/GameSavesBackup/Views/SettingsWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

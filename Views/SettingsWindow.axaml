@@ -11,9 +11,10 @@
         Title="GameSavesBackup">
 
         <StackPanel>
-                <TextBlock HorizontalAlignment="Center" Margin="0,10">Settings</TextBlock>
-                <TextBlock HorizontalAlignment="Left" Margin="30, 5">Username: </TextBlock>
-                <TextBox HorizontalAlignment="Left" Margin="20,0" Width="300"></TextBox>
-                <Button Margin="10" HorizontalAlignment="Center" Width="90" HorizontalContentAlignment="Center">Save</Button>
+                <TextBlock HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                            FontSize="18">
+                            Autobackup feature coming soon!
+                </TextBlock> 
         </StackPanel>
 </Window>
