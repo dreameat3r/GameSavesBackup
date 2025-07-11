@@ -1,75 +1,66 @@
-using System;
-using System.IO;
-using System.Linq;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using Avalonia.Platform.Storage;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using GameSavesBackup.Models;
-using System.Collections.Generic;
+using GameSavesBackup.ViewModels;
 
-namespace GameSavesBackup;
+namespace GameSavesBackup.Views;
+
+public enum PresetResult
+{
+    None,
+    Saved,
+    Deleted
+}
 
 public partial class PresetWindow : Window
 {
+    public PresetResult Result { get; private set; } = PresetResult.None;
+
     public PresetWindow()
     {
         InitializeComponent();
+        DataContext = new PresetViewModel();
+        WindowStartupLocation = WindowStartupLocation.CenterScreen;
     }
 
-    public PresetWindow(string SourcePath, string TargetPath, string GameName)
+    public PresetWindow(string sourcePath, string targetPath)
     {
         InitializeComponent();
+        DataContext = new PresetViewModel(sourcePath, targetPath);
         WindowStartupLocation = WindowStartupLocation.CenterScreen;
+    }
 
-        SourcePathTextBox.Text = SourcePath;
-        TargetPathTextBox.Text = TargetPath;
-        GameNameTextBox.Text = GameName;
+    public PresetWindow(BackupProfile profile)
+    {
+        InitializeComponent();
+        DataContext = new PresetViewModel(profile);
+        WindowStartupLocation = WindowStartupLocation.CenterScreen;
+    }
+
+    private void SavePreset(object? sender, RoutedEventArgs e)
+    {
+        if (DataContext is PresetViewModel vm)
+        {
+            vm.SaveOrUpdate();
+            Result = PresetResult.Saved;
+        }
+
+        this.Close();
+    }
+
+    private void DeletePreset(object? sender, RoutedEventArgs e)
+    {
+        if (DataContext is PresetViewModel vm)
+        {
+            vm.Delete();
+            Result = PresetResult.Deleted;
+        }
+
+        this.Close();
     }
 
     private void CloseWindow(object? sender, RoutedEventArgs e)
     {
         this.Close();
-    }
-
-    private List<BackupProfile> LoadProfilesToList()
-    {
-        string json = File.ReadAllText("presets.json");
-        return JsonSerializer.Deserialize<List<BackupProfile>>(json) ?? new();
-    }
-
-    private void WriteProfileToJson(List<BackupProfile> profiles)
-    {
-        var json = JsonSerializer.Serialize(profiles, new JsonSerializerOptions { WriteIndented = true });
-        File.WriteAllText("presets.json", json);
-    }
-
-    public void AddNewProfile()
-    {
-        var profiles = LoadProfilesToList();
-
-        int NextId = profiles.Any() ? profiles.Max(p => p.Id) + 1 : 1;
-
-        var newProfile = new BackupProfile
-        {
-            Id = NextId,
-            GameName = GameNameTextBox.Text ?? " ",
-            SourcePath = SourcePathTextBox.Text ?? " ",
-            TargetPath = SourcePathTextBox.Text ?? ""
-        };
-
-        profiles.Add(newProfile);
-        WriteProfileToJson(profiles);
-    }
-
-    public void SavePreset(object sender, RoutedEventArgs args)
-    {
-        AddNewProfile();
-        this.Close();
-    }
-    public void DeletePreset(object sender, RoutedEventArgs args)
-    {
-
     }
 }

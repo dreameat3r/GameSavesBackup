@@ -2,8 +2,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:GameSavesBackup.ViewModels"
         mc:Ignorable="d" d:DesignWidth="660" d:DesignHeight="350"
-        x:Class="GameSavesBackup.MainWindow"
+        x:Class="GameSavesBackup.Views.MainWindow"
+        x:DataType="vm:MainViewModel"
         Width="700"
         Height="350"
         CanResize="False"
@@ -33,7 +35,7 @@
         </TextBlock>
         
         <StackPanel Orientation="Horizontal">
-            <TextBox x:Name="SourcePathTextBox"></TextBox>
+            <TextBox x:Name="SourcePathTextBox" Text="{Binding SourcePath}"></TextBox>
             <TextBlock Margin="10"></TextBlock>
             <Button Click="SelectSourceFolder">
                 <StackPanel>
@@ -61,7 +63,7 @@
                    To:</TextBlock>
         
         <StackPanel Orientation="Horizontal">
-            <TextBox x:Name="TargetPathTextBox"></TextBox>  
+            <TextBox x:Name="TargetPathTextBox" Text="{Binding TargetPath}"></TextBox>  
             <TextBlock Margin="10"></TextBlock> 
             <Button Click="SelectTargetFolder">
                 <StackPanel>
@@ -84,7 +86,14 @@
                 Margin="20">
         <TextBlock Margin="0.5" FontWeight="Bold" FontFamily="SF Pro Display" FontSize="17">Presets</TextBlock>
         <ListBox x:Name="Presets"
-                 SelectionChanged="PresetsSelection"></ListBox>
+                 ItemsSource="{Binding Profiles}"
+                 SelectedItem="{Binding SelectedProfile, Mode=TwoWay}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text = "{Binding GameName}" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+        </ListBox>
         <Button HorizontalAlignment="Center"
                 Width="150"
                 HorizontalContentAlignment="Center"

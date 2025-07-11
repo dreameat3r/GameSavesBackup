@@ -2,8 +2,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:GameSavesBackup.ViewModels"
         mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="275"
-        x:Class="GameSavesBackup.PresetWindow"
+        x:Class="GameSavesBackup.Views.PresetWindow"
+        x:DataType="vm:PresetViewModel"
         Width="450"
         Height="275"
         CanResize="False"
@@ -17,7 +19,8 @@
                  Margin="20,5" 
                  Width="400" 
                  Height="20"
-                 x:Name="GameNameTextBox">
+                 x:Name="GameNameTextBox"
+                 Text="{Binding GameName, Mode=TwoWay}">
         </TextBox>
 
         <TextBlock Margin="20,0">From:</TextBlock>
@@ -25,14 +28,16 @@
                  Margin="20,5" 
                  Width="400" 
                  Height="20"
-                 x:Name="SourcePathTextBox">
+                 x:Name="SourcePathTextBox"
+                 Text="{Binding SourcePath, Mode=TwoWay}">
         </TextBox>
         <TextBlock Margin="20,0">To:</TextBlock>
         <TextBox HorizontalAlignment="Left"
                  Margin="20,5" 
                  Width="400" 
                  Height="20"
-                 x:Name="TargetPathTextBox">
+                 x:Name="TargetPathTextBox"
+                 Text="{Binding TargetPath, Mode=TwoWay}">
         </TextBox>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Click="CloseWindow"

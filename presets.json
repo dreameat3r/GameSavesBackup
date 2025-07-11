@@ -1,14 +1,20 @@
 [
   {
     "Id": 1,
-    "GameName": " sadhagsdkakdsj",
-    "SourcePath": "sdahddga",
-    "TargetPath": "sdahddga"
+    "GameName": " sad",
+    "SourcePath": "dsadasdahddga",
+    "TargetPath": "sdahddgadsadasd"
   },
   {
     "Id": 2,
-    "GameName": " jqkdhajkdhksjahd",
-    "SourcePath": "sdahddga",
-    "TargetPath": "sdahddga"
+    "GameName": "dasdasdas",
+    "SourcePath": "asdsahdbhas",
+    "TargetPath": "asdabdnas"
+  },
+  {
+    "Id": 3,
+    "GameName": "Project Zombi",
+    "SourcePath": "/home/dreameater/Documents/Uchebovoe/Training/obj/",
+    "TargetPath": "/home/dreameater/Documents/Uchebovoe/Training/obj/"
   }
 ]

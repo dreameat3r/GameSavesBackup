@@ -1,101 +1,78 @@
-using System;
 using System.IO;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Platform.Storage;
 using System.Text.Json;
 using GameSavesBackup.Models;
-using System.Collections.Generic;
-using Tmds.DBus.Protocol;
+using GameSavesBackup.ViewModels;
 
-namespace GameSavesBackup;
+namespace GameSavesBackup.Views;
 
 public partial class MainWindow : Window
 {
-    private List<BackupProfile> profiles;
+    private MainViewModel ViewModel => (MainViewModel)DataContext!;
 
     public MainWindow()
     {
         InitializeComponent();
         WindowStartupLocation = WindowStartupLocation.CenterScreen;
-
-        profiles = LoadProfilesToList();
-        foreach (var profile in profiles)
-        {
-            Presets.Items.Add(profile.GameName);
-        }
-    }
-
-    private List<BackupProfile> LoadProfilesToList()
-    {
-        string json = File.ReadAllText("presets.json");
-        return JsonSerializer.Deserialize<List<BackupProfile>>(json) ?? new();
-    }
-
-    private void PresetsSelection(object? sender, SelectionChangedEventArgs e)
-    {
-        var selectedItem = Presets.SelectedItem;
-        if (selectedItem == null) return;
-
-        var profile = profiles.Find(p => p.GameName == (string)selectedItem);
-
-        if (profile != null)
-        {
-            SourcePathTextBox.Text = profile.SourcePath;
-            TargetPathTextBox.Text = profile.TargetPath;
-        }
-    }
-
-    public void OpenPresetEditor(object sender, RoutedEventArgs args)
-    {
-        var SourcePath = SourcePathTextBox.Text ?? "";
-        var TargetPath = TargetPathTextBox.Text ?? "";
-        var GameName = Presets.SelectedItem ?? " ";
-
-        var ownerWindow = this;
-        var window = new PresetWindow(SourcePath, TargetPath, (string)GameName);
-        window.ShowDialog(ownerWindow);
-    }
-
-    public void OpenSettings(object sender, RoutedEventArgs args)
-    {
-        var ownerWindow = this;
-        var window = new SettingsWindow();
-        window.ShowDialog(ownerWindow);
+        DataContext = new MainViewModel();
     }
 
     private async void SelectSourceFolder(object? sender, RoutedEventArgs e)
     {
         var folders = await StorageProvider.OpenFolderPickerAsync(new FolderPickerOpenOptions
         {
-            Title = "Select Source Folder",
+            Title = "Выберите исходную папку",
             AllowMultiple = false
         });
 
-        if (folders != null && folders.Count > 0)
-        {
-            var folder = folders[0];
-            SourcePathTextBox.Text = folder.Path.LocalPath;
-        }
+        if (folders is { Count: > 0 })
+            ViewModel.SourcePath = folders[0].Path.LocalPath;
     }
 
     private async void SelectTargetFolder(object? sender, RoutedEventArgs e)
     {
         var folders = await StorageProvider.OpenFolderPickerAsync(new FolderPickerOpenOptions
         {
-            Title = "Select Target Folder",
+            Title = "Выберите папку назначения",
             AllowMultiple = false
         });
 
-        if (folders != null && folders.Count > 0)
+        if (folders is { Count: > 0 })
+            ViewModel.TargetPath = folders[0].Path.LocalPath;
+    }
+
+    private async void OpenPresetEditor(object? sender, RoutedEventArgs e)
+    {
+        BackupProfile? profile = ViewModel.SelectedProfile;
+
+        PresetWindow window;
+
+        if (profile != null)
         {
-            var folder = folders[0];
-            TargetPathTextBox.Text = folder.Path.LocalPath;
+            window = new PresetWindow(profile);
+        }
+        else
+        {
+            var sourcePath = ViewModel.SourcePath;
+            var targetPath = ViewModel.TargetPath;
+
+            window = new PresetWindow(sourcePath, targetPath);
+        }
+
+        await window.ShowDialog(this);
+
+        if (window.Result is PresetResult.Saved or PresetResult.Deleted)
+        {
+            ViewModel.LoadProfiles();
         }
     }
 
-
+    private void OpenSettings(object? sender, RoutedEventArgs e)
+    {
+        var window = new SettingsWindow();
+        window.ShowDialog(this);
+    }
 }
-
