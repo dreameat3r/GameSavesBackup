@@ -9,10 +9,10 @@ public class BackupProfile
     public required string GameName { get; set; }
     public required string SourcePath { get; set; } 
     public required string TargetPath { get; set; }
-    
-    
+
+
     public void Backup()
     {
-
+        
     }
 }

@@ -70,6 +70,13 @@ public partial class MainWindow : Window
         }
     }
 
+    private void ClearFields(object? sender, RoutedEventArgs e)
+    {
+        ViewModel.SelectedProfile = null;
+        ViewModel.SourcePath = "";
+        ViewModel.TargetPath = "";
+    }
+
     private void OpenSettings(object? sender, RoutedEventArgs e)
     {
         var window = new SettingsWindow();

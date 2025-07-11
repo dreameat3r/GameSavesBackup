@@ -45,7 +45,7 @@
         </StackPanel>
         
         <TextBlock Margin="2"></TextBlock>
-        <Button HorizontalAlignment="Center">
+        <Button HorizontalAlignment="Center" Margin="0,0,50,0">
             <StackPanel Orientation="Horizontal" 
                         VerticalAlignment="Center">
                 <PathIcon Height="20" 
@@ -71,11 +71,19 @@
                 </StackPanel>
             </Button>
         </StackPanel>
-        
-        <Button HorizontalAlignment="Center" 
-                Width="100"
-                HorizontalContentAlignment="Center"
-                Margin="15">Backup</Button>
+        <StackPanel Orientation="Horizontal">
+            <Button Click="ClearFields"
+                    HorizontalAlignment="Center" 
+                    Width="100"
+                    HorizontalContentAlignment="Center"
+                    Margin="30,15">Clear
+            </Button>
+            <Button HorizontalAlignment="Center" 
+                    Width="100"
+                    HorizontalContentAlignment="Center"
+                    Margin="15">Backup
+            </Button>
+        </StackPanel>
     </StackPanel>
 
     <StackPanel Grid.Column="1" Grid.Row="0"
