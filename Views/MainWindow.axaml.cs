@@ -82,4 +82,16 @@ public partial class MainWindow : Window
         var window = new SettingsWindow();
         window.ShowDialog(this);
     }
+
+    private void SwapPath(object? sende, RoutedEventArgs e)
+    {
+        var temp = ViewModel.SourcePath;
+        ViewModel.SourcePath = ViewModel.TargetPath;
+        ViewModel.TargetPath = temp; 
+    }
+
+    private void BackupFiles(object? sender, RoutedEventArgs e)
+    {
+        ViewModel.Backup();
+    }
 }

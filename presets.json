@@ -6,15 +6,15 @@
     "TargetPath": "sdahddgadsadasd"
   },
   {
-    "Id": 2,
-    "GameName": "dasdasdas",
-    "SourcePath": "asdsahdbhas",
-    "TargetPath": "asdabdnas"
-  },
-  {
     "Id": 3,
     "GameName": "Project Zombi",
     "SourcePath": "/home/dreameater/Documents/Uchebovoe/Training/obj/",
     "TargetPath": "/home/dreameater/Documents/Uchebovoe/Training/obj/"
+  },
+  {
+    "Id": 4,
+    "GameName": "test",
+    "SourcePath": "/home/dreameater/Documents/Projects/BackupTest1/",
+    "TargetPath": "/home/dreameater/Documents/Projects/BackupTest2/"
   }
 ]

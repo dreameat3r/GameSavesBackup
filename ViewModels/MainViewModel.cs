@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
 using GameSavesBackup.Models;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GameSavesBackup.ViewModels;
 
@@ -98,4 +99,39 @@ public class MainViewModel : INotifyPropertyChanged
     public event PropertyChangedEventHandler? PropertyChanged;
     private void OnPropertyChanged([CallerMemberName] string? prop = null) =>
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+
+    public void Backup()
+    {
+        if (string.IsNullOrWhiteSpace(SourcePath) || string.IsNullOrWhiteSpace(TargetPath))
+            return;
+
+        if (!Directory.Exists(SourcePath))
+            return;
+
+        if (!Directory.Exists(TargetPath))
+            return;
+
+        CopyDirectory(SourcePath, TargetPath);
+    }
+
+    private void CopyDirectory(string sourceDir, string targetDir)
+    {
+        Directory.CreateDirectory(targetDir);
+
+        var files = Directory.GetFiles(sourceDir);
+        foreach (var file in files)
+        {
+            var fileName = Path.GetFileName(file);
+            var targetFile = Path.Combine(targetDir, fileName);
+            File.Copy(file, targetDir, overwrite: true);
+        }
+
+        var directories = Directory.GetDirectories(sourceDir);
+        foreach (var dir in directories)
+        {
+            var dirName = Path.GetFileName(dir);
+            var targetSubDir = Path.Combine(targetDir, dirName);
+            CopyDirectory(dir, targetSubDir);
+        } 
+    }
 }
