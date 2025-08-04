@@ -6,6 +6,10 @@ using Avalonia.Platform.Storage;
 using System.Text.Json;
 using GameSavesBackup.Models;
 using GameSavesBackup.ViewModels;
+using System.Threading.Tasks;
+using Avalonia.Media;
+using Tmds.DBus.Protocol;
+using System;
 
 namespace GameSavesBackup.Views;
 
@@ -87,11 +91,57 @@ public partial class MainWindow : Window
     {
         var temp = ViewModel.SourcePath;
         ViewModel.SourcePath = ViewModel.TargetPath;
-        ViewModel.TargetPath = temp; 
+        ViewModel.TargetPath = temp;
     }
 
-    private void BackupFiles(object? sender, RoutedEventArgs e)
+    private async void BackupFiles(object? sender, RoutedEventArgs e)
     {
-        ViewModel.Backup();
+        bool success = ViewModel.Backup();
+
+        if (success)
+        {
+            await ShowBackupNotificationAsync(true, "Backup successfull!");
+        }
+        else
+        {
+            await ShowBackupNotificationAsync(false, "Backup error!");
+        }
+
+        // try
+        // {
+        //     ViewModel.Backup();
+        //     await ShowBackupNotificationAsync(success: true, message: "Backup successfull!");
+        // }
+        // catch (Exception ex)
+        // {
+        //     Console.WriteLine($"[Backup Error] {ex.Message}");
+        //     await ShowBackupNotificationAsync(success: false, message: "Backup error!");
+        // }
+
+    }
+
+    private async Task ShowBackupNotificationAsync(bool success, string message)
+    {
+        BackupNotification.Background = new SolidColorBrush(success ? Colors.ForestGreen : Colors.IndianRed);
+        BackupNotificationText.Text = message;
+
+        const int steps = 10;
+        const int interval = 30;
+
+        BackupNotification.IsHitTestVisible = true;
+        for (int i = 0; i <= steps; i++)
+        {
+            BackupNotification.Opacity = i / (double)steps;
+            await Task.Delay(interval);
+        }
+
+        await Task.Delay(2000);
+
+        for (int i = steps; i >= 0; i--)
+        {
+            BackupNotification.Opacity = i / (double)steps;
+            await Task.Delay(interval);
+        }
+        BackupNotification.IsHitTestVisible = false;
     }
 }

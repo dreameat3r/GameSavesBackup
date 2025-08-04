@@ -102,38 +102,42 @@ public class MainViewModel : INotifyPropertyChanged
     private void OnPropertyChanged([CallerMemberName] string? prop = null) =>
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
 
-    public void Backup()
+    public bool Backup()
     {
         if (string.IsNullOrWhiteSpace(SourcePath) || string.IsNullOrWhiteSpace(TargetPath))
-            return;
+            return false;
 
         if (!Directory.Exists(SourcePath))
-            return;
-
-        string FolderName = Path.GetFileName(SourcePath.TrimEnd(Path.DirectorySeparatorChar));
-        string FinalTargetPath = Path.Combine(TargetPath, FolderName);
+            return false;
 
         try
         {
-            CopyDirectory(SourcePath, TargetPath);
+            return CopyDirectory(SourcePath, TargetPath);
         }
-        catch (Exception ex)
+        catch 
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            return false;
         }
     }
 
-    private void CopyDirectory(string source, string target)
+    private bool CopyDirectory(string source, string target)
     {
+        bool copiedAnything = false;
+
         if (!Directory.Exists(target))
             Directory.CreateDirectory(target);
 
         var files = Directory.GetFiles(source);
         foreach (var file in files)
         {
-            string fileName = Path.GetFileName(file);
-            string targetFile = Path.Combine(target, fileName);
-            File.Copy(file, targetFile, overwrite: true);
+            try
+            {
+                string fileName = Path.GetFileName(file);
+                string targetFile = Path.Combine(target, fileName);
+                File.Copy(file, targetFile, overwrite: true);
+                copiedAnything = true;
+            }
+            catch { }
         }
 
         var directories = Directory.GetDirectories(source);
@@ -141,7 +145,9 @@ public class MainViewModel : INotifyPropertyChanged
         {
             string dirName = Path.GetFileName(dir);
             string targetSubDir = Path.Combine(target, dirName);
-            CopyDirectory(dir, targetSubDir);   
-        } 
+            if (CopyDirectory(dir, targetSubDir))
+                copiedAnything = true;
+        }
+        return copiedAnything;
     }
 }

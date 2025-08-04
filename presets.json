@@ -2,7 +2,7 @@
   {
     "Id": 1,
     "GameName": "PresetExample",
-    "SourcePath": "C:\\Users\\DreamEater\\Documents\\My Games\\Terraria\\",
-    "TargetPath": "D:\\Downloads\\Saves\\Terraria\\"
+    "SourcePath": "C:\\Users\\user\\Documents\\My Games\\GameName\\",
+    "TargetPath": "D:\\Saves\\GameName\\"
   }
 ]
