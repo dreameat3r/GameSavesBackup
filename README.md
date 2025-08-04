@@ -1,5 +1,5 @@
 # GameSavesBackup
-A simple application for copying save files (and more). Created either for games without cloud saves (so as not to do it manually each time), or for some experiments with saves.
+A simple AvaloniaUI application for copying save files (and more). Created either for games without cloud saves (so as not to do it manually each time), or for some experiments with saves.
 
 ---
 
