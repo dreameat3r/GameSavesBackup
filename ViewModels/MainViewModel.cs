@@ -8,6 +8,8 @@ using System.Runtime.CompilerServices;
 using System.Text.Json;
 using GameSavesBackup.Models;
 using System.ComponentModel.DataAnnotations.Schema;
+using Tmds.DBus.Protocol;
+using System.Runtime.ConstrainedExecution;
 
 namespace GameSavesBackup.ViewModels;
 
@@ -108,30 +110,38 @@ public class MainViewModel : INotifyPropertyChanged
         if (!Directory.Exists(SourcePath))
             return;
 
-        if (!Directory.Exists(TargetPath))
-            return;
+        string FolderName = Path.GetFileName(SourcePath.TrimEnd(Path.DirectorySeparatorChar));
+        string FinalTargetPath = Path.Combine(TargetPath, FolderName);
 
-        CopyDirectory(SourcePath, TargetPath);
+        try
+        {
+            CopyDirectory(SourcePath, TargetPath);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error: {ex.Message}");
+        }
     }
 
-    private void CopyDirectory(string sourceDir, string targetDir)
+    private void CopyDirectory(string source, string target)
     {
-        Directory.CreateDirectory(targetDir);
+        if (!Directory.Exists(target))
+            Directory.CreateDirectory(target);
 
-        var files = Directory.GetFiles(sourceDir);
+        var files = Directory.GetFiles(source);
         foreach (var file in files)
         {
-            var fileName = Path.GetFileName(file);
-            var targetFile = Path.Combine(targetDir, fileName);
-            File.Copy(file, targetDir, overwrite: true);
+            string fileName = Path.GetFileName(file);
+            string targetFile = Path.Combine(target, fileName);
+            File.Copy(file, targetFile, overwrite: true);
         }
 
-        var directories = Directory.GetDirectories(sourceDir);
+        var directories = Directory.GetDirectories(source);
         foreach (var dir in directories)
         {
-            var dirName = Path.GetFileName(dir);
-            var targetSubDir = Path.Combine(targetDir, dirName);
-            CopyDirectory(dir, targetSubDir);
+            string dirName = Path.GetFileName(dir);
+            string targetSubDir = Path.Combine(target, dirName);
+            CopyDirectory(dir, targetSubDir);   
         } 
     }
 }

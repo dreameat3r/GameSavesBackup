@@ -1587,25 +1587,31 @@
     ]
   },
   "packageFolders": {
-    "/home/dreameater/.nuget/packages/": {}
+    "C:\\Users\\DreamEater\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/dreameater/Documents/Projects/GameSavesBackup/GameSavesBackup.csproj",
+      "projectUniqueName": "D:\\Projects\\GameSavesBackup\\GameSavesBackup.csproj",
       "projectName": "GameSavesBackup",
-      "projectPath": "/home/dreameater/Documents/Projects/GameSavesBackup/GameSavesBackup.csproj",
-      "packagesPath": "/home/dreameater/.nuget/packages/",
-      "outputPath": "/home/dreameater/Documents/Projects/GameSavesBackup/obj/",
+      "projectPath": "D:\\Projects\\GameSavesBackup\\GameSavesBackup.csproj",
+      "packagesPath": "C:\\Users\\DreamEater\\.nuget\\packages\\",
+      "outputPath": "D:\\Projects\\GameSavesBackup\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/home/dreameater/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\DreamEater\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
-        "/usr/lib64/dotnet/library-packs": {},
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1624,7 +1630,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net9.0": {
@@ -1675,7 +1681,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/9.0.107/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,20 +1,8 @@
 [
   {
     "Id": 1,
-    "GameName": "hui",
-    "SourcePath": "dsadasdahddga",
-    "TargetPath": "sdahddgadsadasd"
-  },
-  {
-    "Id": 3,
-    "GameName": "Project Zombi",
-    "SourcePath": "/home/dreameater/Documents/Uchebovoe/Training/obj/",
-    "TargetPath": "/home/dreameater/Documents/Uchebovoe/Training/obj/"
-  },
-  {
-    "Id": 4,
-    "GameName": "test",
-    "SourcePath": "/home/dreameater/Documents/Projects/BackupTest1/",
-    "TargetPath": "/home/dreameater/Documents/Projects/BackupTest2/"
+    "GameName": "PresetExample",
+    "SourcePath": "C:\\Users\\DreamEater\\Documents\\My Games\\Terraria\\",
+    "TargetPath": "D:\\Downloads\\Saves\\Terraria\\"
   }
 ]
