@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "f4NGuUVghJk=",
+  "dgSpecHash": "CmqK5LK9PV4=",
   "success": true,
   "projectFilePath": "D:\\Projects\\GameSavesBackup\\GameSavesBackup.csproj",
   "expectedPackageFiles": [
@@ -28,6 +28,7 @@
     "C:\\Users\\DreamEater\\.nuget\\packages\\harfbuzzsharp.nativeassets.webassembly\\8.3.1.1\\harfbuzzsharp.nativeassets.webassembly.8.3.1.1.nupkg.sha512",
     "C:\\Users\\DreamEater\\.nuget\\packages\\harfbuzzsharp.nativeassets.win32\\8.3.1.1\\harfbuzzsharp.nativeassets.win32.8.3.1.1.nupkg.sha512",
     "C:\\Users\\DreamEater\\.nuget\\packages\\microcom.runtime\\0.11.0\\microcom.runtime.0.11.0.nupkg.sha512",
+    "C:\\Users\\DreamEater\\.nuget\\packages\\microsoft.net.illink.tasks\\9.0.6\\microsoft.net.illink.tasks.9.0.6.nupkg.sha512",
     "C:\\Users\\DreamEater\\.nuget\\packages\\shimskiasharp\\3.0.2\\shimskiasharp.3.0.2.nupkg.sha512",
     "C:\\Users\\DreamEater\\.nuget\\packages\\skiasharp\\2.88.9\\skiasharp.2.88.9.nupkg.sha512",
     "C:\\Users\\DreamEater\\.nuget\\packages\\skiasharp.nativeassets.linux\\2.88.9\\skiasharp.nativeassets.linux.2.88.9.nupkg.sha512",
@@ -37,7 +38,10 @@
     "C:\\Users\\DreamEater\\.nuget\\packages\\svg.custom\\3.0.2\\svg.custom.3.0.2.nupkg.sha512",
     "C:\\Users\\DreamEater\\.nuget\\packages\\svg.model\\3.0.2\\svg.model.3.0.2.nupkg.sha512",
     "C:\\Users\\DreamEater\\.nuget\\packages\\system.io.pipelines\\8.0.0\\system.io.pipelines.8.0.0.nupkg.sha512",
-    "C:\\Users\\DreamEater\\.nuget\\packages\\tmds.dbus.protocol\\0.21.2\\tmds.dbus.protocol.0.21.2.nupkg.sha512"
+    "C:\\Users\\DreamEater\\.nuget\\packages\\tmds.dbus.protocol\\0.21.2\\tmds.dbus.protocol.0.21.2.nupkg.sha512",
+    "C:\\Users\\DreamEater\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\9.0.6\\microsoft.netcore.app.runtime.win-x64.9.0.6.nupkg.sha512",
+    "C:\\Users\\DreamEater\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\9.0.6\\microsoft.windowsdesktop.app.runtime.win-x64.9.0.6.nupkg.sha512",
+    "C:\\Users\\DreamEater\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\9.0.6\\microsoft.aspnetcore.app.runtime.win-x64.9.0.6.nupkg.sha512"
   ],
   "logs": []
 }
