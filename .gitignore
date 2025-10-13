@@ -1,0 +1,24 @@
+# Build
+bin/
+obj/
+
+# Logs
+*.log
+
+# VS Code
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# System
+.DS_Store
+Thumbs.db
+
+# Cache
+*.tmp
+*.temp
+*.bak
+*.swp
+*.lock
